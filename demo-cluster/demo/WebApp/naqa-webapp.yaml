@@ -1,0 +1,21 @@
+apiVersion: example.crossplane.io/v1
+kind: WebApp
+metadata:
+  annotations:
+    terasky.backstage.io/source-info: >-
+      {"pushToGit":true,"gitBranch":"main","gitRepo":"github.com?owner=naqa92&repo=demo-gitops","gitLayout":"cluster-scoped","basePath":"demo-cluster/demo/WebApp"}
+    terasky.backstage.io/add-to-catalog: 'true'
+    terasky.backstage.io/owner: group:default/guests
+    terasky.backstage.io/system: demo
+    terasky.backstage.io/source-file-url: >-
+      https://github.com/naqa92/demo-gitops/blob/main/demo-cluster/demo/WebApp/naqa-webapp.yaml
+  name: naqa-webapp
+  namespace: demo
+spec:
+  scaling:
+    enabled: true
+    maxReplicas: 2
+    minReplicas: 1
+  fqdn: naqa-webapp.example.com
+  image: nginx:latest
+  port: 8080
