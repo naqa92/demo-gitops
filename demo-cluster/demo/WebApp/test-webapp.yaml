@@ -14,7 +14,7 @@ spec:
     enabled: false
     maxReplicas: 10
     minReplicas: 1
-  fqdn: webapp-another.example.com
+  fqdn: webapp-another2.example.com
   image: nginx:latest
   port: 80
   crossplane:
